@@ -12,7 +12,7 @@
         <!--testToDoList-->
         <scene sceneID="P4b-Om-Fq7">
             <objects>
-                <tableViewController id="Y96-9g-erf" customClass="ToDoTableTableViewController" customModule="testToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Y96-9g-erf" customClass="ToDoTableViewController" customModule="testToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oZh-iZ-iOQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
