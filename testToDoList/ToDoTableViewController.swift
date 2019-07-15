@@ -48,7 +48,7 @@ class ToDoTableViewController: UITableViewController {
     // lets user see hard-coded toDos in Table View when you run the app
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        
         let toDo = toDos[indexPath.row]
         
         if toDo.important {
@@ -58,6 +58,14 @@ class ToDoTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //this gives us a single ToDo
+        let toDo = toDos[indexPath.row]
+        
+        performSegue(withIdentifier: "moveToComplete", sender: toDo)
     }
 
     /*
@@ -95,14 +103,26 @@ class ToDoTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Creates reference to the AddToDoViewController
+    // gets called whether we segue to the AddToDoViewController or segue to the CompleteToDoViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        //Get the new view controller using segue.destination.
+        //Pass the selected object to the new view controller.
+        if let addVC = segue.destination as? AddToDoViewController {
+            addVC.previousVC = self
+        }
+        
+        if let completeVC = segue.destination as? CompleteToDoViewController {
+            if let toDo = sender as? ToDo {
+                completeVC.selectedToDo = toDo
+                completeVC.previousVC = self
+            }
+        }
     }
-    */
 
 }
